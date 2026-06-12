@@ -1,3 +1,13 @@
+---
+title: SolUSSD
+emoji: 📱
+colorFrom: purple
+colorTo: green
+sdk: docker
+app_port: 5500
+pinned: false
+---
+
 # SolUSSD — Solana USSD Gateway for Nigeria
 
 Access the Solana blockchain from any phone using USSD. No internet connection, no smartphone, and no crypto experience required. Built for Superteam Nigeria.
