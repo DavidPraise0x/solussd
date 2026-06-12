@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolUSSD — Solana on USSD</title>
+    <meta name="description" content="Access Solana blockchain from any phone via USSD. No smartphone needed. Send, receive, and check SOL balance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-effects" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header" id="header">
+            <a href="#" class="logo">
+                <div class="logo-icon">◎</div>
+                <span class="logo-text">Sol<span class="accent">USSD</span></span>
+            </a>
+            <div class="header-right">
+                <div class="network-pill" id="network-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Solana Devnet</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main">
+            <!-- Left: Info panel -->
+            <section class="info-panel">
+                <div class="eyebrow-badge">USSD × SOLANA BLOCKCHAIN</div>
+                <h1 class="hero-title">
+                    Blockchain<br>from <span class="gradient-text">Any Phone</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Send, receive, and manage Solana — no smartphone, no internet, no barriers. Just dial a USSD code from any phone.
+                </p>
+
+                <div class="dial-card" id="dial-card">
+                    <div class="dial-card-label">Try the prototype — Dial</div>
+                    <button class="dial-code-btn" id="btn-dial" aria-label="Dial USSD code to start">
+                        <span class="dial-code-text">*384*1#</span>
+                        <span class="dial-code-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-value">&lt; 1s</div>
+                        <div class="stat-label">Finality</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value">$0.00025</div>
+                        <div class="stat-label">Avg Fee</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value">65,000</div>
+                        <div class="stat-label">TPS</div>
+                    </div>
+                </div>
+
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">📱</span>
+                        <div>
+                            <strong>Any Phone</strong>
+                            <p>Feature phones, smartphones — if it can dial, it works.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🔐</span>
+                        <div>
+                            <strong>PIN-Secured</strong>
+                            <p>Transactions protected by your 4-digit PIN.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div>
+                            <strong>Instant Transfers</strong>
+                            <p>Solana's sub-second finality means no waiting.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">🌍</span>
+                        <div>
+                            <strong>Financial Inclusion</strong>
+                            <p>Banking the 40%+ Nigerians without smartphones.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Right: Phone simulator -->
+            <section class="phone-section">
+                <div class="phone-glow" aria-hidden="true"></div>
+                <div class="phone-frame" id="phone-frame">
+                    <!-- Speaker grille -->
+                    <div class="phone-speaker"></div>
+
+                    <!-- Screen -->
+                    <div class="phone-screen" id="phone-screen">
+                        <div class="screen-statusbar">
+                            <span class="carrier">SolUSSD</span>
+                            <div class="statusbar-icons">
+                                <span class="signal">▂▄▆█</span>
+                            </div>
+                        </div>
+                        <div class="ussd-display" id="ussd-display">
+                            <div class="ussd-content" id="ussd-content"></div>
+                            <div class="ussd-loader" id="ussd-loader">
+                                <div class="loader-spinner"></div>
+                                <span id="loader-text">Processing...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="input-row">
+                        <input 
+                            type="text" 
+                            id="ussd-input" 
+                            placeholder="Type response..."
+                            autocomplete="off" 
+                            spellcheck="false"
+                            aria-label="USSD input">
+                        <button class="input-clear" id="btn-clear" aria-label="Clear input">⌫</button>
+                    </div>
+
+                    <!-- Keypad -->
+                    <div class="keypad" id="keypad">
+                        <button class="key" data-value="1"><span class="key-num">1</span></button>
+                        <button class="key" data-value="2"><span class="key-num">2</span><span class="key-letters">ABC</span></button>
+                        <button class="key" data-value="3"><span class="key-num">3</span><span class="key-letters">DEF</span></button>
+                        <button class="key" data-value="4"><span class="key-num">4</span><span class="key-letters">GHI</span></button>
+                        <button class="key" data-value="5"><span class="key-num">5</span><span class="key-letters">JKL</span></button>
+                        <button class="key" data-value="6"><span class="key-num">6</span><span class="key-letters">MNO</span></button>
+                        <button class="key" data-value="7"><span class="key-num">7</span><span class="key-letters">PQRS</span></button>
+                        <button class="key" data-value="8"><span class="key-num">8</span><span class="key-letters">TUV</span></button>
+                        <button class="key" data-value="9"><span class="key-num">9</span><span class="key-letters">WXYZ</span></button>
+                        <button class="key key-symbol" data-value="*"><span class="key-num">✱</span></button>
+                        <button class="key" data-value="0"><span class="key-num">0</span><span class="key-letters">+</span></button>
+                        <button class="key key-symbol" data-value="#"><span class="key-num">#</span></button>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="action-row">
+                        <button class="btn-action btn-cancel" id="btn-cancel">
+                            <span class="btn-icon">✕</span> Cancel
+                        </button>
+                        <button class="btn-action btn-reply" id="btn-reply">
+                            Reply <span class="btn-icon">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built for <strong>Superteam Nigeria</strong> · Powered by <strong>Solana</strong> · Prototype on <strong>Devnet</strong></p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/@solana/web3.js@1/lib/index.iife.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
