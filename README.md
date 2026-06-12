@@ -6,6 +6,11 @@ colorTo: green
 sdk: docker
 app_port: 5500
 pinned: false
+variables:
+  RENDER: "true"
+  SOLANA_RPC_URL: "https://api.devnet.solana.com"
+  DB_PATH: "./data/solussd.db"
+  ENCRYPTION_KEY: "solussd-dev-key-change-in-prod-32"
 ---
 
 # SolUSSD — Solana USSD Gateway for Nigeria
